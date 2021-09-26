@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0px;
+            margin: 0px;
+
+        }
+
+        .boxBoy {
+            border: 0px solid black;
+            margin: auto;
+            position: absolute;
+            width: 200px;
+            height: 172px;
+            top: 50%;
+            left: 50%;
+            margin-top: -100px;
+            margin-left: -75px;
+        }
+
+        .boxBoy p {
+            text-align: center;
+        }
+    </style>
+    <script>
+        function changeBoy(nameImg, msg) {
+            document.getElementById('imagemBoy').src = `Imagens/exercício01/${nameImg}.png`;
+            if (nameImg == "alegre") {
+                let nome = "";
+                while (nome == "" || nome == null) {
+                    nome = prompt("Digite seu nome.")
+                    nome = nome.trim();
+                    if (nome == "" || nome == null) {
+                        alert("Digite seu nome e pressionar 'ok' para continuar.");
+                    }
+                }
+                msg = `${nome}, você quer bincar?`;
+            }
+            document.getElementById("txtBoy").innerHTML = msg;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="boxBoy">
+        <img src="Imagens/exercício01/pensativo.png" id="imagemBoy" alt="" height="169" width="145"
+            onmouseenter="changeBoy('assustado', 'O que você quer?')"
+            onmousedown="changeBoy('nervoso', 'Não me aperte!!!')" onmouseup="changeBoy('alegre', '')">
+        <p id="txtBoy">zzzzzzzzzz!!!</p>
+    </div>
+</body>
+
+</html>
